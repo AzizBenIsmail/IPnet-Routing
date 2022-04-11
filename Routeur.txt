@@ -1,0 +1,211 @@
+Router>enable
+Router#conf
+Configuring from terminal, memory, or network [terminal]? 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#hostname R1
+R1(config)#bannermotd
+                 ^
+% Invalid input detected at '^' marker.
+	
+R1(config)#bann
+R1(config)#banner 
+R1(config)#banner 
+% Incomplete command.
+R1(config)#
+R1(config)#bannermotd
+                 ^
+% Invalid input detected at '^' marker.
+	
+R1(config)#banner motd
+% Incomplete command.
+R1(config)#banner motd "
+Enter TEXT message.  End with the character '"'.
+Acces interdit "
+
+R1(config)#exit
+R1#
+%SYS-5-CONFIG_I: Configured from console by console
+
+R1#exit
+
+------
+Acces interdit 
+
+R1>enable
+R1#conf
+Configuring from terminal, memory, or network [terminal]? 
+Enter configuration commands, one per line.  End with CNTL/Z.
+R1(config)#no ip domainelookup
+R1(config)#no ip domaine-lookup
+                       ^
+% Invalid input detected at '^' marker.
+	
+R1(config)#no ip domain-lookup
+R1(config)#enable secret cisco
+R1(config)#line console 0 
+R1(config-line)#password cisco
+R1(config-line)#login
+R1(config-line)#
+R1#
+%SYS-5-CONFIG_I: Configured from console by console
+
+----------
+Acces interdit 
+
+User Access Verification
+
+Password: 
+
+R1>enable
+Password: 
+R1#conf
+Configuring from terminal, memory, or network [terminal]? 
+Enter configuration commands, one per line.  End with CNTL/Z.
+R1(config)#line vty 0 4
+R1(config-line)#password cisco
+R1(config-line)#login 
+R1(config-line)#exit
+R1(config)#interface fa0/0
+R1(config-if)#ip address 192.168.1.1 255.255.255.0
+R1(config-if)#no shutdown
+
+R1(config-if)#
+%LINK-5-CHANGED: Interface FastEthernet0/0, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to up
+
+R1(config-if)#exit
+R1(config)#interface fa1/0
+R1(config-if)#ip address 192.168.2.1 255.255.255.0
+R1(config-if)#no shutdown
+
+R1(config-if)#
+%LINK-5-CHANGED: Interface FastEthernet1/0, changed state to up
+
+R1(config-if)#
+
+-------
+
+
+Router>enable
+Router#conf
+Configuring from terminal, memory, or network [terminal]? 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#interface fa0/
+                             ^
+% Invalid input detected at '^' marker.
+	
+Router(config)#interface fa0/0
+Router(config-if)#ip address 192.168.3.1
+% Incomplete command.
+Router(config-if)#ip address 192.168.3.1 255.255.255.0
+Router(config-if)#no shut
+Router(config-if)#no shutdown 
+
+Router(config-if)#
+%LINK-5-CHANGED: Interface FastEthernet0/0, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to up
+
+Router(config-if)#exit
+Router(config)#hostname R2
+R2(config)#interface fa1/0
+R2(config-if)#ip address 192.168.2.2 255.255.255.0
+R2(config-if)#no h
+R2(config-if)#no hu
+R2(config-if)#no ha
+R2(config-if)#no hutd
+R2(config-if)#no sh
+R2(config-if)#no shutdown 
+
+R2(config-if)#
+%LINK-5-CHANGED: Interface FastEthernet1/0, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet1/0, changed state to up
+
+-----
+R2(config)#do wr
+
+----
+
+{ Exit-interface (fa1/0)
+{ Next-hop (192.168.2.2)
+
+
+------
+ Acces interdit 
+
+User Access Verification
+
+Password: 
+
+R1>enable
+Password: 
+R1#show ip route
+Codes: C - connected, S - static, I - IGRP, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+       i - IS-IS, L1 - IS-IS level-1, L2 - IS-IS level-2, ia - IS-IS inter area
+       * - candidate default, U - per-user static route, o - ODR
+       P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+C    192.168.1.0/24 is directly connected, FastEthernet0/0
+C    192.168.2.0/24 is directly connected, FastEthernet1/0
+
+R1#conf
+Configuring from terminal, memory, or network [terminal]? 
+Enter configuration commands, one per line.  End with CNTL/Z.
+R1(config)#ip route 192.168.3.0 255.255.255.0 fa1/0
+R1(config)#exit
+R1#
+%SYS-5-CONFIG_I: Configured from console by console
+conf
+Configuring from terminal, memory, or network [terminal]? 
+Enter configuration commands, one per line.  End with CNTL/Z.
+R1(config)#exit
+R1#
+%SYS-5-CONFIG_I: Configured from console by console
+show ip route
+Codes: C - connected, S - static, I - IGRP, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+       i - IS-IS, L1 - IS-IS level-1, L2 - IS-IS level-2, ia - IS-IS inter area
+       * - candidate default, U - per-user static route, o - ODR
+       P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+C    192.168.1.0/24 is directly connected, FastEthernet0/0
+C    192.168.2.0/24 is directly connected, FastEthernet1/0
+S    192.168.3.0/24 is directly connected, FastEthernet1/0
+
+-----
+
+R2>enable
+R2#conf
+Configuring from terminal, memory, or network [terminal]? 
+Enter configuration commands, one per line.  End with CNTL/Z.
+R2(config)#ip route 192.168.2.1 255.255.255.0 fa1/0
+%Inconsistent address and mask
+R2(config)#ip route 192.168.1.0 255.255.255.0 fa1/0
+R2(config)#exit
+R2#
+%SYS-5-CONFIG_I: Configured from console by console
+show ip route
+Codes: C - connected, S - static, I - IGRP, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+       i - IS-IS, L1 - IS-IS level-1, L2 - IS-IS level-2, ia - IS-IS inter area
+       * - candidate default, U - per-user static route, o - ODR
+       P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+S    192.168.1.0/24 is directly connected, FastEthernet1/0
+C    192.168.2.0/24 is directly connected, FastEthernet1/0
+C    192.168.3.0/24 is directly connected, FastEthernet0/0
