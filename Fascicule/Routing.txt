@@ -1,0 +1,7 @@
+Fasicule 1 Zone D Config du routeur les pwd , nom , interface ,
+ table de routage , distance administrative , 
+Fasicule 2 Zone A Configuration des route statique
+Fasicule 3 Zone C Configuration Rip
+Fasicule 4 Zone B Configuration OSPF Point-à-Point à zone unique
+Fasicule 5 Zone Backbone Configuration OSPF à accès multiple
+Fasicule 6 Zone B et C Translation d’adresses IPv4
